@@ -110,13 +110,9 @@
 					objects.push(current_object);
 				}
 
-				// centrer l'objet sur la scène
-				var box = new THREE.Box3();
-				box.setFromObject(current_object);
-				box.center(controls.target);
-				controls.update();
-
 				render();
+
+
 
 			}, undefined, function (error) {
 
@@ -220,27 +216,36 @@
 			});
 
 
-			$("#place-button").click(function () {
+			document.getElementById("place-button").addEventListener("touchend", function (event) {
+				event.preventDefault();
+				event.stopPropagation();
 				arPlace();
 			});
 
 			function arPlace() {
+				console.log("PLACE appuyé");
+
 				if (reticle.visible && current_object) {
 
-					current_object.position.copy(reticle.position);
+					current_object.position.setFromMatrixPosition(reticle.matrix);
+
 					current_object.visible = true;
 
-					console.log("Objet placé !");
-					console.log("Position :", current_object.position);
-
+					console.log("OBJET PLACE");
+				} else {
+					console.log("Pas de reticle ou pas d'objet");
 				}
 			}
 
-			$("#add-button").click(function () {
+			document.getElementById("add-button").addEventListener("touchend", function (event) {
+				event.preventDefault();
+				event.stopPropagation();
 				loadModel(current_url, false);
 			});
 
-			$("#clear-button").click(function () {
+			document.getElementById("clear-button").addEventListener("touchend", function (event) {
+				event.preventDefault();
+				event.stopPropagation();
 
 				objects.forEach(function (object) {
 					scene.remove(object);
@@ -248,7 +253,6 @@
 
 				objects = [];
 				current_object = null;
-
 			});
 
 			reticle = new THREE.Mesh(

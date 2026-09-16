@@ -67,3 +67,20 @@ body {
 #clear-button {
     left: calc(50% + 60px);
 }
+
+#content {
+    position: relative;
+    z-index: 10;
+}
+
+#container {
+    z-index: 1;
+}
+
+#place-button,
+#add-button,
+#clear-button {
+    z-index: 1000;
+    pointer-events: auto;
+    touch-action: manipulation;
+}
