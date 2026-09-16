@@ -96,7 +96,7 @@ class ARButton {
 			button.style.display = '';
 
 			button.style.cursor = 'pointer';
-			button.style.left = 'calc(50% - 50px)';
+			button.style.right = '20px';
 			button.style.width = '100px';
 
 			button.textContent = 'START AR';
@@ -158,7 +158,7 @@ class ARButton {
 			button.style.display = '';
 
 			button.style.cursor = 'auto';
-			button.style.left = 'calc(50% - 75px)';
+			button.style.right = '20px';
 			button.style.width = '150px';
 
 			button.onmouseenter = null;
