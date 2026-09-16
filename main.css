@@ -45,3 +45,25 @@ body {
         font-size: 18px;
     }
 }
+
+#place-button,
+#add-button,
+#clear-button {
+    position: absolute;
+    bottom: 20px;
+    width: 100px;
+    height: 35px;
+    display: none;
+}
+
+#place-button {
+    left: calc(50% - 50px);
+}
+
+#add-button {
+    left: calc(50% - 160px);
+}
+
+#clear-button {
+    left: calc(50% + 60px);
+}
